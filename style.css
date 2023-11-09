@@ -1,0 +1,65 @@
+.image1 {
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 500px;
+   
+}
+.btn{
+    height:50px;
+    width:200px;
+    background-color: rgba(82, 27, 4, 0.272);
+    border-radius: 7px;
+    font-size:large;
+    font-weight: bold;
+    font-family:Great Vibes;
+    text-emphasis-color: rgb(237, 205, 171);
+  margin-top: 50px;
+  margin-left: 300px;
+
+}
+.btn:hover{
+    background:#ffff ;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+#animated-logo {
+    width: 250px; /* Set the width and height to match your logo's dimensions */
+    height: 250px;
+    animation: spin 2s linear infinite; /* Apply the animation */
+}
+.head
+{
+    text-align: center;
+    margin-top: 0;
+    font-weight: bolder;
+    margin-left: 300px;
+    
+
+}

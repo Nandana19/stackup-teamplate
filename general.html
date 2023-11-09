@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>General Knowledge Quiz</title>
+    <style>
+         .body{
+        background-color: black;
+        color: wheat;
+        text-align: center;
+    
+
+    }
+    .qs{
+        margin-top: 50px;
+        
+    }
+    .top{
+        padding-top: 50px;
+    }
+
+
+    </style>
+</head>
+<body class="body">
+    <h1 style="font-weight: bold;font-size: xx-large;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;padding-top: 30px;">General Knowledge Quiz</h1>
+    <form id="quizForm" class="qs">
+        <ol>
+            <ul class="top">
+                <p>1.What is the capital of France?</p>
+                <label>
+                    <input type="radio" name="q1" value="a"> a) Berlin
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="b"> b) Madrid
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="c"> c) Paris
+                </label>
+            </ul>
+            <ul class="top">
+                <p>2.Which planet is known as the Red Planet?</p>
+                <label>
+                    <input type="radio" name="q2" value="a"> a) Venus
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="b"> b) Mars
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="c"> c) Jupiter
+                </label>
+            </ul>
+            <ul class="top">
+                <p>3.What is the largest mammal in the world?</p>
+                <label>
+                    <input type="radio" name="q3" value="a"> a) Elephant
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="b"> b) Blue Whale
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="c"> c) Giraffe
+                </label>
+            </ul>
+            <ul class="top">
+                <p>4.Who wrote "Romeo and Juliet"?</p>
+                <label>
+                    <input type="radio" name="q4" value="a"> a) Charles Dickens
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="b"> b) William Shakespeare
+                </label>
+                <label>
+                    <input type="radio" name="q4" value="c"> c) Jane Austen
+                </label>
+            </ul>
+            <ul class="top">
+                <p>5.What is the largest organ in the human body?</p>
+                <label>
+                    <input type="radio" name="q5" value="a"> a) Heart
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="b"> b) Skin
+                </label>
+                <label>
+                    <input type="radio" name="q5" value="c"> c) Brain
+                </label>
+            </ul>
+            <ul class="top">
+                <p>6.Which gas do plants absorb from the atmosphere?</p>
+                <label>
+                    <input type="radio" name="q6" value="a"> a) Oxygen
+                </label>
+                <label>
+                    <input type="radio" name="q6" value="b"> b) Carbon Dioxide
+                </label>
+                <label>
+                    <input type="radio" name="q6" value="c"> c) Nitrogen
+                </label>
+            </ul>
+            <ul class="top">
+                <p>7.What is the chemical symbol for gold?</p>
+                <label>
+                    <input type="radio" name="q7" value="a"> a) Go
+                </label>
+                <label>
+                    <input type="radio" name="q7" value="b"> b) Au
+                </label>
+                <label>
+                    <input type="radio" name="q7" value="c"> c) Ag
+                </label>
+            </ul>
+            <ul class="top">
+                <p>8.Which continent is the largest by land area?</p>
+                <label>
+                    <input type="radio" name="q8" value="a"> a) Asia
+                </label>
+                <label>
+                    <input type="radio" name="q8" value="b"> b) Africa
+                </label>
+                <label>
+                    <input type="radio" name="q8" value="c"> c) North America
+                </label>
+            </ul>
+            <ul class="top">
+                <p>9.What is the capital of Australia?</p>
+                <label>
+                    <input type="radio" name="q9" value="a"> a) Sydney
+                </label>
+                <label>
+                    <input type="radio" name="q9" value="b"> b) Melbourne
+                </label>
+                <label>
+                    <input type="radio" name="q9" value="c"> c) Canberra
+                </label>
+            </ul>
+            <ul class="top">
+                <p>10.Which gas makes up the majority of Earth's atmosphere?</p>
+                <label>
+                    <input type="radio" name="q10" value="a"> a) Oxygen
+                </label>
+                <label>
+                    <input type="radio" name="q10" value="b"> b) Carbon Dioxide
+                </label>
+                <label>
+                    <input type="radio" name="q10" value="c"> c) Nitrogen
+                </label>
+            </ul>
+        </ol>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="results" style="display: none;">
+        <h2>Results:</h2>
+        <ul id="scoreList">
+        </ul>
+    </div>
+
+    <script>
+        const quizForm = document.getElementById("quizForm");
+        const resultsDiv = document.getElementById("results");
+        const scoreList = document.getElementById("scoreList");
+    
+        quizForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+    
+            const answers = {
+                q1: "c",
+                q2: "b",
+                q3: "b",
+                q4: "b",
+                q5: "b",
+                q6: "b",
+                q7: "b",
+                q8: "a",
+                q9: "c",
+                q10: "c",
+            };
+    
+            let score = 0;
+    
+            for (const question in answers) {
+                const selectedAnswer = document.querySelector(`input[name=${question}]:checked`);
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === answers[question]) {
+                        score++;
+                    }
+                }
+            }
+    
+            const totalQuestions = Object.keys(answers).length;
+    
+            scoreList.innerHTML = `<li>Your Score: ${score} out of ${totalQuestions}</li>`;
+            resultsDiv.style.display = "block";
+        });
+    </script>
+    
+</body>
+</html>
