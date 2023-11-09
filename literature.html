@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Literature Quiz</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #000;
+            color: wheat;
+            border-radius: 10px;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+        }
+        .options input[type="radio"] {
+            background-color: #000;
+            color: wheat;
+        }
+        .submit-btn {
+            background-color: #000;
+            color: wheat;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .score {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Literature Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">1. Who wrote "Romeo and Juliet"?</div>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a">a) William Shakespeare</label>
+                <label><input type="radio" name="q1" value="b">b) Charles Dickens</label>
+                <label><input type="radio" name="q1" value="c">c) Jane Austen</label>
+            </div>
+
+            <div class="question">2. Which novel features the character Harry Potter?</div>
+            <div class="options">
+                <label><input type="radio" name="q2" value="a">a) The Lord of the Rings</label>
+                <label><input type="radio" name="q2" value="b">b) To Kill a Mockingbird</label>
+                <label><input type="radio" name="q2" value="c">c) Harry Potter and the Sorcerer's Stone</label>
+            </div>
+
+            <div class="question">3. Who wrote "Pride and Prejudice"?</div>
+            <div class="options">
+                <label><input type="radio" name="q3" value="a">a) Charles Dickens</label>
+                <label><input type="radio" name="q3" value="b">b) Jane Austen</label>
+                <label><input type="radio" name="q3" value="c">c) Mark Twain</label>
+            </div>
+
+            <div class="question">4. What novel tells the story of a man named Ebenezer Scrooge and his transformation on Christmas Eve?</div>
+            <div class="options">
+                <label><input type="radio" name="q4" value="a">a) Moby-Dick</label>
+                <label><input type="radio" name="q4" value="b">b) Oliver Twist</label>
+                <label><input type="radio" name="q4" value="c">c) A Christmas Carol</label>
+            </div>
+
+            <div class="question">5. In which Shakespearean play would you find the character Othello?</div>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a">a) Macbeth</label>
+                <label><input type="radio" name="q5" value="b">b) Othello</label>
+                <label><input type="radio" name="q5" value="c">c) Hamlet</label>
+            </div>
+
+            <div class="question">6. Who wrote "1984"?</div>
+            <div class="options">
+                <label><input type="radio" name="q6" value="a">a) J.K. Rowling</label>
+                <label><input type="radio" name="q6" value="b">b) George Orwell</label>
+                <label><input type="radio" name="q6" value="c">c) F. Scott Fitzgerald</label>
+            </div>
+
+            <div class="question">7. In which book do the characters Alice and the Cheshire Cat appear?</div>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a">a) Little Women</label>
+                <label><input type="radio" name="q7" value="b">b) Alice's Adventures in Wonderland</label>
+                <label><input type="radio" name="q7" value="c">c) The Catcher in the Rye</label>
+            </div>
+
+            <div class="question">8. Who wrote "The Great Gatsby"?</div>
+            <div class="options">
+                <label><input type="radio" name="q8" value="a">a) Mark Twain</label>
+                <label><input type="radio" name="q8" value="b">b) F. Scott Fitzgerald</label>
+                <label><input type="radio" name="q8" value="c">c) Jane Austen</label>
+            </div>
+
+            <div class="question">9. Which Shakespearean play features a character named Juliet?</div>
+            <div class="options">
+                <label><input type="radio" name="q9" value="a">a) Othello</label>
+                <label><input type="radio" name="q9" value="b">b) Macbeth</label>
+                <label><input type="radio" name="q9" value="c">c) Romeo and Juliet</label>
+            </div>
+
+            <div class="question">10. Who wrote "To Kill a Mockingbird"?</div>
+            <div class="options">
+                <label><input type="radio" name="q10" value="a">a) J.D. Salinger</label>
+                <label><input type="radio" name="q10" value="b">b) Harper Lee</label>
+                <label><input type="radio" name="q10" value="c">c) John Steinbeck</label>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="calculateScore()">Submit</button>
+        </form>
+        <div id="score" class="score" style="display: none;"></div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const form = document.getElementById('quiz-form');
+            const answers = form.elements;
+
+            let score = 0;
+
+            // Define the correct answers for each question
+            const correctAnswers = {
+                q1: 'a',
+                q2: 'c',
+                q3: 'b',
+                q4: 'c',
+                q5: 'b',
+                q6: 'b',
+                q7: 'b',
+                q8: 'b',
+                q9: 'c',
+                q10: 'b'
+            };
+
+            for (const question in correctAnswers) {
+                if (answers[question].value === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the score
+            const scoreContainer = document.getElementById('score');
+            scoreContainer.innerHTML = `Your Score: ${score} out of 10`;
+            scoreContainer.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
